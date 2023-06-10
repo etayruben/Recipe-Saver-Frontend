@@ -28,8 +28,8 @@ const RecipiesLoader: React.FC<any> = () =>  {
     <div>
       <h1>My Recipe App</h1>
       <Grid container spacing={2}>
-        {recipes.map((recipe, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+        {recipes.map(recipe => (
+          <Grid item xs={12} sm={6} md={4} lg={3}>
             <Recipe
               headline={recipe.headline}
               link={recipe.link}
