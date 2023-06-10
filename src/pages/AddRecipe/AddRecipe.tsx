@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Grid, Typography, Box } from '@mui/material';
+import { POST } from '../../services/api';
 
 const AddRecipe: React.FC = () => {
   const [headline, setHeadline] = useState('');
@@ -7,19 +8,43 @@ const AddRecipe: React.FC = () => {
   const [imageRaw, setImageRaw] = useState('');
   const [categories, setCategories] = useState('');
   const [workTime, setWorkTime] = useState('');
+  const [requestInformation, setRequestInformation] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+
+  const submitRecipe = async (e: React.FormEvent) => {
+    document.body.style.cursor = 'wait';
     
-  };
+    try {
+      const response = await fetch('http://localhost:5500/addRecipe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({headline: headline, link: link, imageRaw: imageRaw, categories: categories, workTime: workTime}),
+      });
+      
+      if (response.ok) {
+        const responseBody = await response.text();
+        console.log(responseBody)
+        setRequestInformation(responseBody)
+      } else {
+        setRequestInformation("There was a problem adding the recipe :(")
+      }
+    } catch (error) {
+      console.error('Error:', error);
 
+    } finally {
+      document.body.style.cursor = 'auto';
+    }
+  };
+  
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="90vh">
       <Container maxWidth="sm">
         <Typography variant="h4" align="center" gutterBottom>
           Add Recipe
         </Typography>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submitRecipe}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -71,6 +96,11 @@ const AddRecipe: React.FC = () => {
                 Submit
               </Button>
             </Grid>
+            <Grid item xs={12}>
+            <Typography variant="subtitle1" align="center">
+                {requestInformation}
+            </Typography>
+          </Grid>
           </Grid>
         </form>
       </Container>
