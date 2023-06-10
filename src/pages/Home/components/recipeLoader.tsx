@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 
 interface RecipesProps {
-  headline: string;
+  headLine: string;
   link: string;
   imageRaw: string;
   categories: string[];
@@ -23,15 +23,14 @@ const RecipiesLoader: React.FC<any> = () =>  {
       setRecipes(fetchedRecipes);
     });
   }, []);
-
   return (
     <div>
-      <h1>My Recipe App</h1>
+      <h1>Reciepe Saver</h1>
       <Grid container spacing={2}>
         {recipes.map(recipe => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <Recipe
-              headline={recipe.headline}
+              headline={recipe.headLine}
               link={recipe.link}
               imageRaw={recipe.imageRaw}
               categories={recipe.categories}
