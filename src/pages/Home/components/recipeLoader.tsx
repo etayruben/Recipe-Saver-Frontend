@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 
 interface RecipesProps {
-  headLine: string;
+  headline: string;
   link: string;
   imageRaw: string;
   categories: string[];
@@ -30,7 +30,7 @@ const RecipiesLoader: React.FC<any> = () =>  {
         {recipes.map(recipe => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <Recipe
-              headline={recipe.headLine}
+              headline={recipe.headline}
               link={recipe.link}
               imageRaw={recipe.imageRaw}
               categories={recipe.categories}
