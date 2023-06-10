@@ -1,21 +1,23 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Divider } from '@mui/material';
+import { AppBar, Toolbar, Button, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 
 const NavigationBar: React.FC = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div">
+      <Button component={Link} to="/" color="inherit">
           Home
-        </Typography>
+        </Button>
         <Divider orientation="vertical" flexItem sx={{ mx: 2 }} />
-        <Typography variant="h6" component="div">
+        <Button component={Link} to="/add-recipe" color="inherit">
           Add Recipe
-        </Typography>
+        </Button>
         <Divider orientation="vertical" flexItem sx={{ mx: 2 }} />
-        <Typography variant="h6" component="div">
+        <Button component={Link} to="/about-me" color="inherit">
           About Me
-        </Typography>
+        </Button>
       </Toolbar>
     </AppBar>
   );
