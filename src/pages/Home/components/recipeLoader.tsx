@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GET } from '../../services/api';
+import { GET } from '../../../services/api';
 import Recipe from './recipe';
 import { Grid } from '@mui/material';
 
@@ -19,7 +19,7 @@ const RecipiesLoader: React.FC<any> = () =>  {
   useEffect(() => {
     const fetchRecipes = GET("loadRecipes")
 
-    fetchRecipes.then((fetchedRecipes) => {
+    fetchRecipes.then((fetchedRecipes: React.SetStateAction<RecipesProps[]>) => {
       setRecipes(fetchedRecipes);
     });
   }, []);
