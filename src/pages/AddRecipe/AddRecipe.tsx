@@ -25,7 +25,6 @@ const AddRecipe: React.FC = () => {
       
       if (response.ok) {
         const responseBody = await response.text();
-        console.log(responseBody)
         setRequestInformation(responseBody)
       } else {
         setRequestInformation("There was a problem adding the recipe :(")
