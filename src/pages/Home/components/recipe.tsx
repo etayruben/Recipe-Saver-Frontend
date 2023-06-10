@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Link, Card, CardMedia, CardContent, List, ListItem } from '@mui/material';
+import { Typography, Link, Card, CardMedia, CardContent, List, ListItem, Box } from '@mui/material';
 
 interface RecipeProps {
   headline: string;
@@ -11,14 +11,13 @@ interface RecipeProps {
 }
 
 const Recipe: React.FC<RecipeProps> = ({ headline, link, imageRaw, categories, workTime, id }) => {
-
     return (
         <Card>
-          <CardMedia component="img" height="200" image={imageRaw} alt="Recipe Image" />
           <CardContent>
-            <Typography variant="h5" component="h2">
-              {headline}
-            </Typography>
+              <Typography variant="h5" component="h2" textAlign="center">
+                {headline}
+              </Typography>
+            <CardMedia component="img" height="200" image={imageRaw} alt="Recipe Image" />
             <Typography variant="subtitle1" component="div" gutterBottom>
               Categories: {categories.join(', ')}
             </Typography>
