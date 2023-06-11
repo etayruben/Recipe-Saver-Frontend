@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:5500';
 
-export async function GET(endpoint: string): Promise<any> {
-  const url = `${BASE_URL}/${endpoint}`;
+export async function loadRecipes(): Promise<any> {
+  const url = `${BASE_URL}/loadRecipes`;
   
   try {
     const response = await fetch(url);
@@ -13,7 +13,7 @@ export async function GET(endpoint: string): Promise<any> {
     return data;
   } catch (error) {
     console.error('Error:', error);
-    throw error;
+    return []
   }
 }
 
