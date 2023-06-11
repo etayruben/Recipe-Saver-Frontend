@@ -96,10 +96,10 @@ const AddRecipe: React.FC = () => {
               </Button>
             </Grid>
             <Grid item xs={12}>
-            <Typography variant="subtitle1" align="center">
-                {requestInformation}
-            </Typography>
-          </Grid>
+                <Typography variant="subtitle1" align="center">
+                    {requestInformation}
+                </Typography>
+            </Grid>
           </Grid>
         </form>
       </Container>
