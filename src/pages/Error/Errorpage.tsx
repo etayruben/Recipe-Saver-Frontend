@@ -21,7 +21,7 @@ const ErrorPage: React.FC = () => {
           className="retryButtons"
           onClick={() => navigate(-1)}
         >
-          Retry
+          Last page
         </Button>
       </div>
     );
