@@ -16,7 +16,6 @@ export async function loadRecipes(query: Object, options: Object): Promise<any> 
     }
     
     const data = await response.json();
-    console.log(data)
     return data;
   } catch (error) {
     console.error('Error:', error);
@@ -24,26 +23,27 @@ export async function loadRecipes(query: Object, options: Object): Promise<any> 
   }
 }
 
-export async function POST(endpoint: string, body: any): Promise<any> {
-  const url = `${BASE_URL}/${endpoint}`;
-
+export async function removeRecipe(_id: string) {
+  console.log(_id)
+  const url = `${BASE_URL}/removeRecipe`;
+  
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/text',
       },
-      body: JSON.stringify(body),
+      body: _id,
     });
-    
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
     }
     
-    const data = await response.json();
+    const data = await response.text();
+    console.log(data)
     return data;
   } catch (error) {
     console.error('Error:', error);
-    throw error;
+    return []
   }
 }
