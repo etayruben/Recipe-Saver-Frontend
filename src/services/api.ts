@@ -31,7 +31,7 @@ export async function removeRecipe(_id: string) {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/text',
+        'Content-Type': 'text/plain',
       },
       body: _id,
     });
