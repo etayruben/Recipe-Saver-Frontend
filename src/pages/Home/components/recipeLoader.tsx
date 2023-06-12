@@ -17,13 +17,12 @@ const RecipesLoader: React.FC<any> = () =>  {
   const [recipes, setRecipes] = useState<RecipesProps[]>([]);
 
   useEffect(() => {
-    const fetchRecipes = loadRecipes()
+    const fetchRecipes = loadRecipes({}, {})
 
     fetchRecipes.then((fetchedRecipes: React.SetStateAction<RecipesProps[]>) => {
       setRecipes(fetchedRecipes);
     });
   }, []);
-
   return (
     <div>
       <h1>Reciepe Saver</h1>
