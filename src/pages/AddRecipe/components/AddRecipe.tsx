@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Grid, Typography, Box } from '@mui/material';
+import CategoriesInput from './Catergories';
 
 const AddRecipe: React.FC = () => {
   const [headline, setHeadline] = useState('');
@@ -68,17 +69,10 @@ const AddRecipe: React.FC = () => {
                 value={imageRaw}
                 onChange={(e) => setImageRaw(e.target.value)}
                 fullWidth
-                required
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                label="Categories"
-                value={categories}
-                onChange={(e) => setCategories(e.target.value)}
-                fullWidth
-                required
-              />
+              <CategoriesInput />
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -86,7 +80,6 @@ const AddRecipe: React.FC = () => {
                 value={workTime}
                 onChange={(e) => setWorkTime(e.target.value)}
                 fullWidth
-                required
               />
             </Grid>
             <Grid item xs={12}>
