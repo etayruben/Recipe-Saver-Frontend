@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import capitalizeWords from '../../../utils/utils';
+import { removeRecipe } from '../../../services/api';
 
 interface RecipeProps {
   headline: string;
@@ -9,19 +10,20 @@ interface RecipeProps {
   imageRaw: string;
   categories: string[];
   workTime: number;
-  id: number;
+  _id: string;
 }
 
-const Recipe: React.FC<RecipeProps> = ({ headline, link, imageRaw, categories, workTime, id }) => {
+const Recipe: React.FC<RecipeProps> = ({ headline, link, imageRaw, categories, workTime, _id }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isCloseIconHovered, setIsCloseIconHovered] = useState(false);
-  
+
   return (
     <Card onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} style={{ position: 'relative' }}>
       {isHovered && (
         <CloseIcon
           onMouseEnter={() => setIsCloseIconHovered(true)}
           onMouseLeave={() => setIsCloseIconHovered(false)}
+          onClick={() => removeRecipe(_id)}
           style={{
             position: 'absolute',
             top: '0.5rem',
