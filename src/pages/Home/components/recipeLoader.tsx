@@ -9,7 +9,7 @@ interface RecipesProps {
   imageRaw: string;
   categories: string[];
   workTime: number;
-  id: number;
+  _id: string;
 }
 
 const RecipesLoader: React.FC<any> = () =>  {
@@ -27,14 +27,14 @@ const RecipesLoader: React.FC<any> = () =>  {
       <h1>Reciepe Saver</h1>
       <Grid container spacing={2}>
         {recipes.map(recipe => (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Grid key={recipe._id} item xs={12} sm={6} md={4} lg={3}>
             <Recipe
               headline={recipe.headline}
               link={recipe.link}
               imageRaw={recipe.imageRaw}
               categories={recipe.categories}
               workTime={recipe.workTime}
-              id={recipe.id}
+              _id={recipe._id}
             />
           </Grid>
         ))}
