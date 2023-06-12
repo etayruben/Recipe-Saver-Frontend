@@ -6,7 +6,7 @@ const AddRecipe: React.FC = () => {
   const [headline, setHeadline] = useState('');
   const [link, setLink] = useState('');
   const [imageRaw, setImageRaw] = useState('');
-  const [categories, setCategories] = useState('');
+  const [chips, setChips] = useState<string[]>([]);
   const [workTime, setWorkTime] = useState('');
   const [requestInformation, setRequestInformation] = useState('');
 
@@ -20,7 +20,7 @@ const AddRecipe: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({headline: headline, link: link, imageRaw: imageRaw, categories: categories, workTime: workTime}),
+        body: JSON.stringify({headline: headline, link: link, imageRaw: imageRaw, categories: chips, workTime: workTime}),
       });
       
       if (response.ok) {
@@ -72,7 +72,7 @@ const AddRecipe: React.FC = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <CategoriesInput />
+              <CategoriesInput chips={chips} setChips={setChips}/>
             </Grid>
             <Grid item xs={12}>
               <TextField

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { TextField, Chip} from '@mui/material';
+import { TextField, Chip } from '@mui/material';
 
-const CategoriesInput: React.FC = () => {
-    const [chips, setChips] = useState<string[]>([]);
+interface CategoriesInputProps {
+    chips: string[],
+    setChips: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+const CategoriesInput: React.FC<CategoriesInputProps> = (props) => {
     const [inputValue, setInputValue] = useState<string>('');
   
     const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -18,13 +22,13 @@ const CategoriesInput: React.FC = () => {
   
     const addChip = () => {
       if (inputValue.trim() !== '') {
-        setChips((prevChips) => [...prevChips, inputValue.trim()]);
+        props.setChips((prevChips) => [...prevChips, inputValue.trim()]);
         setInputValue('');
       }
     };
   
     const handleChipDelete = (chipToDelete: string) => () => {
-      setChips((prevChips) => prevChips.filter((chip) => chip !== chipToDelete));
+      props.setChips((prevChips) => prevChips.filter((chip) => chip !== chipToDelete));
     };
   
     return (
@@ -37,7 +41,7 @@ const CategoriesInput: React.FC = () => {
           fullWidth
         />
         <div>
-          {chips.map((chip, index) => (
+          {props.chips.map((chip, index) => (
             <Chip
               key={index}
               label={chip}
