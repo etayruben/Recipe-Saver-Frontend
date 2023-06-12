@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { loadRecipes } from '../../../services/api';
 import Recipe from './recipe';
 import { Grid } from '@mui/material';
-import { redirect } from "react-router-dom";
 
 interface RecipesProps {
   headline: string;
