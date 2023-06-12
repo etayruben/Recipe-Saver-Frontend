@@ -13,7 +13,7 @@ interface RecipesProps {
   id: number;
 }
 
-const RecipiesLoader: React.FC<any> = () =>  {
+const RecipesLoader: React.FC<any> = () =>  {
   const [recipes, setRecipes] = useState<RecipesProps[]>([]);
 
   useEffect(() => {
@@ -45,4 +45,4 @@ const RecipiesLoader: React.FC<any> = () =>  {
   );
 };
 
-export default RecipiesLoader;
+export default RecipesLoader;

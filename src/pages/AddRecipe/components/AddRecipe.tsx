@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Grid, Typography, Box } from '@mui/material';
-import { POST } from '../../services/api';
 
 const AddRecipe: React.FC = () => {
   const [headline, setHeadline] = useState('');
