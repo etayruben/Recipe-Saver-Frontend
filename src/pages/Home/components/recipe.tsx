@@ -23,7 +23,10 @@ const Recipe: React.FC<RecipeProps> = ({ headline, link, imageRaw, categories, w
         <CloseIcon
           onMouseEnter={() => setIsCloseIconHovered(true)}
           onMouseLeave={() => setIsCloseIconHovered(false)}
-          onClick={() => removeRecipe(_id)}
+          onClick={() => {
+            removeRecipe(_id)
+            location.reload();
+          }}
           style={{
             position: 'absolute',
             top: '0.5rem',
