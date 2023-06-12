@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Link, Card, CardMedia, CardContent, List, ListItem, Box } from '@mui/material';
+import { Typography, Card, CardMedia, CardContent, Button} from '@mui/material';
 
 interface RecipeProps {
   headline: string;
@@ -25,9 +25,9 @@ const Recipe: React.FC<RecipeProps> = ({ headline, link, imageRaw, categories, w
               Work Time: {workTime} minutes
             </Typography>
             <Typography variant="body2" component="div">
-              <Link href={link} target="_blank" rel="noopener">
+              <Button variant='contained' href={link} target="_blank" rel="noopener">
                 Go to recipe
-              </Link>
+              </Button>
             </Typography>
           </CardContent>
         </Card>
