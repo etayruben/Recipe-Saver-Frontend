@@ -80,6 +80,7 @@ const AddRecipe: React.FC = () => {
                 value={workTime}
                 onChange={(e) => setWorkTime(e.target.value)}
                 fullWidth
+                inputMode='numeric'
               />
             </Grid>
             <Grid item xs={12}>
