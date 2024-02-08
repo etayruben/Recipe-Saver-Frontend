@@ -12,7 +12,7 @@ const RoutesComponent: React.FC = () => {
       
       <Route path='/login' Component={LoginPage} />
       <Route path="/error-page" Component={ErrorPage} />
-      <Route element={<PrivateRoutes />}>
+      <Route Component={PrivateRoutes}>
         <Route path="/" Component={RecipesLoader} />
         <Route path="/add-recipe" Component={AddRecipe} />
       </Route>
