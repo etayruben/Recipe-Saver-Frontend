@@ -34,7 +34,7 @@ const CategoriesInput: React.FC<CategoriesInputProps> = (props) => {
     return (
       <div>
         <TextField
-          label="Type A Category And Psress Enter"
+          label="Type A Category And Press Enter"
           value={inputValue}
           onChange={handleChange}
           onKeyPress={handleKeyPress}

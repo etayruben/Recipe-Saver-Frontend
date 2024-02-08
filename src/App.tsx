@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import NavigationBar from './pages/NavigationBar';
 import RoutesComponent from './services/Routes';
 
-const App:React.FC = () => {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <NavigationBar/>
